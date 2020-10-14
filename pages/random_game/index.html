@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <title>세월: Random Game</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.8/dist/js/uikit-icons.min.js"></script>
+
+    <style>
+      .full-height {
+        height: 100vh;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function (){
+        document.querySelector('#start-confirm').addEventListener('click', startButton);
+      });
+
+      const startButton = () => {
+        alert('아직 기다려주세요!');
+      }
+    </script>
+  </head>
+  <body>
+    <div id="start-container" class="uk-flex full-height uk-flex-center uk-flex-middle">
+      <div class="uk-card uk-card-default uk-card-body uk-card-hover">
+        <h3 class="uk-card-title">랜덤게임</h3>
+        <div class="name-forms uk-margin-top uk-padding-small">
+          <h4>참여자</h4>
+          <div class="uk-margin">
+            <input id="you" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="당신의 이름">
+          </div>
+          <div class="uk-margin">
+            <input id="partner" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="상대의 이름">
+          </div>
+          <h4>사용할 것</h4>
+          <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+            <label><input class="uk-checkbox" type="checkbox" checked> 막대기</label>
+            <label><input class="uk-checkbox" type="checkbox"> 구멍</label>
+          </div>
+          <button id="start-confirm" class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">시작</button>
+        </div>
+      </div>
+  </div>
+  </body>
+</html>
