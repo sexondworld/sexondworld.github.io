@@ -17,37 +17,54 @@
       .full-height {
         height: 100vh;
       }
+      .d-none {
+        display: none;
+      }
     </style>
+    <script src="./../../app/utils/cookie.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function (){
         document.querySelector('#start-confirm').addEventListener('click', startButton);
       });
 
       const startButton = () => {
-        alert('아직 기다려주세요!');
+        const userNames = document.querySelectorAll('.user-names');
+        for (let i = 0, l = userNames.length; i < l; i += 1) {
+            const userName = userNames[i];
+            setCookie(userName.id, userName.value, 3)
+        }
+        // document.querySelector('#start-container').classList.add('d-none')
+        // document.querySelector('#game-container').classList.remove('d-none')
       }
     </script>
   </head>
   <body>
-    <div id="start-container" class="uk-flex full-height uk-flex-center uk-flex-middle">
-      <div class="uk-card uk-card-default uk-card-body uk-card-hover">
-        <h3 class="uk-card-title">랜덤게임</h3>
-        <div class="name-forms uk-margin-top uk-padding-small">
-          <h4>참여자</h4>
-          <div class="uk-margin">
-            <input id="you" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="당신의 이름">
+    <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+      <div id="start-container" class="uk-flex uk-flex-center uk-flex-middle">
+        <div class="uk-card uk-card-default uk-card-body uk-card-hover">
+          <h3 class="uk-card-title">랜덤게임</h3>
+          <div class="name-forms uk-margin-top uk-padding-small">
+            <div class="uk-margin">
+              <input id="user_1" class="uk-input uk-form-width-medium uk-form-small user-names" type="text" placeholder="당신의 이름">
+            </div>
+            <div class="uk-margin">
+              <input id="user_2" class="uk-input uk-form-width-medium uk-form-small user-names" type="text" placeholder="상대의 이름">
+            </div>
+            <!-- <h4>사용할 것</h4>
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+              <label><input class="uk-checkbox" type="checkbox" checked> 막대기</label>
+              <label><input class="uk-checkbox" type="checkbox"> 구멍</label>
+            </div> -->
+            <button id="start-confirm" class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">시작</button>
           </div>
-          <div class="uk-margin">
-            <input id="partner" class="uk-input uk-form-width-medium uk-form-small" type="text" placeholder="상대의 이름">
-          </div>
-          <h4>사용할 것</h4>
-          <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-            <label><input class="uk-checkbox" type="checkbox" checked> 막대기</label>
-            <label><input class="uk-checkbox" type="checkbox"> 구멍</label>
-          </div>
-          <button id="start-confirm" class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">시작</button>
         </div>
       </div>
-  </div>
+      <div id="game-container">
+        <div class="uk-card uk-card-default uk-card-large uk-card-body">
+            <h3 class="uk-card-title">결과</h3>
+            <p id="result"></p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
